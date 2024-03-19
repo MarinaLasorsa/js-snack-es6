@@ -33,9 +33,7 @@ console.log(segnaposto);
 
 //dobbiamo stampare le targhe col nome degli studenti: 
 //1. creare una lista contenente il loro nome tutto in maiuscolo
-    //ES (Marco della Rovere => MARCO DELLA ROVERE);
-//2. Dobbiamo creare una lista di tutti gli studenti che hanno un totale di voti superiore a 70
-//3. Dobbiamo creare una lista di tutti gli studenti che hanno un totale di voti superiore a 70 e id superiore a 120
+//ES (Marco della Rovere => MARCO DELLA ROVERE);
 
 /*Id   Name                  Grades
 213  Marco della Rovere      78
@@ -85,7 +83,7 @@ const studenti = [
         name: "Francesca da Polenta",
         grades: 84
     },
-]
+];
 
 console.log(studenti);
 
@@ -98,7 +96,44 @@ const targheStudenti = studenti.map((el) => {
         name: el.name.toUpperCase(),
         grades: el.grades
     }
-})
+});
 
 console.log(targheStudenti);
+
+//2. Dobbiamo creare una lista di tutti gli studenti che
+//hanno un totale di voti superiore a 70
+
+//dichiarare nuovo array che passa ogni elemento:
+
+const targheVotiAlti = targheStudenti.filter((el) => {
+    //SE grades di elemento è superiore a 70, ritorna true
+    if(el.grades > 70) {
+        return true;
+    } 
+    //ALTRIMENTI ritorna false
+    else {
+        return false;
+    }
+});
+
+console.log(targheVotiAlti);
+
+//3. Dobbiamo creare una lista di tutti gli studenti che hanno un totale di voti superiore a 70 e id superiore a 120
+
+//dichiarare nuovo array che passa ogni elemento:
+
+const targheVotiAltiIdAlti = targheVotiAlti.filter((el) => {
+    //SE grades è superiore a 70 e id è superiore a 120, ritorna true
+    if(el.id > 120) {
+        return true;
+    }
+    //ALTRIMENTI ritorna false
+    else {
+        return false;
+    }
+});
+
+console.log(targheVotiAltiIdAlti);
+
+
 
