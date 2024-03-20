@@ -218,5 +218,94 @@ const {name, weight} = lightestBike
 console.log(`La bici più leggera è ${name}, che pesa ${weight}`);
 
 
+//ESERCIZIO 4:
+
+//Creare un array di oggetti di squadre di calcio.
+//Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+//Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+//Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti.
+//Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+
+//Creare array
+
+const teamsArray = [
+    {
+        teamName: "Milan",
+        points: 0,
+        fouls: 0
+    },
+    {
+        teamName: "Inter",
+        points: 0,
+        fouls: 0
+    },
+    {
+        teamName: "Lazio",
+        points: 0,
+        fouls: 0
+    },
+    {
+        teamName: "Roma",
+        points: 0,
+        fouls: 0
+    },
+    {
+        teamName: "Juventus",
+        points: 0,
+        fouls: 0
+    },
+    {
+        teamName: "Napoli",
+        points: 0,
+        fouls: 0
+    },
+    {
+        teamName: "Atalanta",
+        points: 0,
+        fouls: 0
+    },
+    {
+        teamName: "Fiorentina",
+        points: 0,
+        fouls: 0
+    },
+]
+
+//con ciclo for, per ogni elemento dell'array 
+//definisco punti fatti e falli subiti dell'elemento corrente come numeri random (usa funzione)
+for (i=0; i<teamsArray.length; i++) {
+    const currentElement = teamsArray[i];
+
+    currentElement.points = getRandomIntInclusive(1, 100);
+    currentElement.fouls = getRandomIntInclusive(1, 100);
+}
+
+console.log(teamsArray);
+
+//funzione per generare numero random tra un minimo e un massimo inclusi
+function getRandomIntInclusive(min, max) {
+	const minCeiled = Math.ceil(min)
+	const maxFloored = Math.floor(max)
+	return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled)
+}
+
+
+
+//creo array che per ogni elemento ritorna solo nomi e falli
+
+const noPointsArray = teamsArray.map((el, i) => {
+    //definisco elemento dell'array
+    const team = teamsArray[i];
+    //destrutturo elemento dell'array per recuperare nomi e falli
+    const {teamName, points, fouls} = team;
+
+    return {
+        teamName,
+        fouls
+    }
+});
+
+console.log(noPointsArray);
+
 
 
