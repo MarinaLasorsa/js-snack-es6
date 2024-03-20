@@ -136,4 +136,87 @@ const targheVotiAltiIdAlti = targheVotiAlti.filter((el) => {
 console.log(targheVotiAltiIdAlti);
 
 
+//ESERCIZIO 3:
+
+//Creare un array di oggetti:
+//Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: 
+//nome e peso.
+//Stampare in console la bici con peso minore utilizzando destructuring e template literal
+
+
+//dichiaro array bici 
+
+const bikesArray = [
+    {
+        name: "Bianchi",
+        weight: 6.6
+    },
+    {
+        name: "Look",
+        weight: 7
+    },
+    {
+        name: "Willier Triestina",
+        weight: 9.5
+    },
+    {
+        name: "Pinarello",
+        weight: 6.8
+    },
+    {
+        name: "Colnago",
+        weight: 6.8
+    },
+    {
+        name: "Cervelo S5",
+        weight: 6.9
+    },
+    {
+        name: "Canyon",
+        weight: 6.3
+    },
+    {
+        name: "Merida Reacto Team",
+        weight: 7.1
+    },
+    {
+        name: "Specialized",
+        weight: 9.2
+    },
+    {
+        name: "Trek",
+        weight: 7.1
+    },
+]
+
+
+//trovare il peso più basso ciclando con for:
+
+//dichiaro variabile elemento più piccolo, settandolo ad indice 0
+
+let lightestBike = bikesArray[0]
+
+//nel ciclo for, parto da indice 1
+
+for (let i = 1; i < bikesArray.length; i++) {
+    //dichiaro current element
+    const currentElement = bikesArray[i];
+
+    //se il peso dell'elemento corrente è minore del peso dell'elemento più basso, 
+    //allora elemento più basso è uguale a elemento corrente
+    if (currentElement.weight < lightestBike.weight) {
+        lightestBike = currentElement
+    }
+}
+
+//destrutturare l'oggetto più basso per ottenere name e weight
+
+const {name, weight} = lightestBike
+
+//stampo stringa che dice "la bici più leggera è ${name} che pesa ${weight}"
+
+console.log(`La bici più leggera è ${name}, che pesa ${weight}`);
+
+
+
 
